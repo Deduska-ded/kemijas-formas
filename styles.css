@@ -1,0 +1,100 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", serif;
+    background: #ffffff;
+    color: #000000;
+}
+
+body {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 15mm 20mm;
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+header h2 {
+    font-size: 16px;
+    text-align: center;
+    margin: 8px 0 16px;
+}
+
+.info {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.info span {
+    white-space: nowrap;
+}
+
+.line {
+    flex: 1;
+    border-bottom: 1px solid #000;
+    margin-left: 6px;
+    min-width: 80px;
+}
+
+.line.long {
+    min-width: 160px;
+}
+
+.line.short {
+    min-width: 60px;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.form-table th,
+.form-table td {
+    border: 1px solid #000;
+    padding: 3px 4px;
+    vertical-align: top;
+    height: 16px;
+}
+
+.form-table th {
+    text-align: center;
+    font-weight: normal;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.nav a {
+    text-decoration: none;
+    border: 1px solid #000;
+    padding: 4px 8px;
+}
+
+.sign {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-top: 25px;
+    font-size: 13px;
+}
