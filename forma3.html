@@ -16,8 +16,15 @@
         <h2>3. forma – Publiskā informācija par laboratorijas krājumiem</h2>
 
         <p class="info-text">
-            Šī forma paredzēta, lai parādītu skolai publiski pieejamu informāciju par laboratorijas vielām un aprīkojumu.
+            Šī forma paredzēta, lai parādītu skolai publiski pieejamu informāciju par laboratorijas vielām un inventāru.
         </p>
+
+        <!-- Rindas ar filtrēšanas pogām -->
+        <div class="nav-row filter-row">
+            <button type="button" class="btn primary" id="btn-all">Rādīt visu</button>
+            <button type="button" class="btn outline" id="btn-vielas">Rādīt vielas</button>
+            <button type="button" class="btn outline" id="btn-inventars">Rādīt inventāru</button>
+        </div>
 
         <div class="table-wrapper">
             <table>
@@ -32,43 +39,8 @@
                     <th>Komentāri</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>KL024774</td>
-                    <td>Katalizators</td>
-                    <td>Aprīkojums</td>
-                    <td>Trauks</td>
-                    <td>23</td>
-                    <td>Labs</td>
-                    <td>Bez bojājumiem</td>
-                </tr>
-                <tr>
-                    <td>KL024772</td>
-                    <td>Sīrups</td>
-                    <td>Viela</td>
-                    <td>Šķīdums</td>
-                    <td>20</td>
-                    <td>Vidējs</td>
-                    <td>Jāuzrauga derīguma termiņš</td>
-                </tr>
-                <tr>
-                    <td>KL024779</td>
-                    <td>Stikla kolba</td>
-                    <td>Aprīkojums</td>
-                    <td>Trauks</td>
-                    <td>40</td>
-                    <td>Labs</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>KL024781</td>
-                    <td>Skābe</td>
-                    <td>Viela</td>
-                    <td>Šķidrums</td>
-                    <td>18</td>
-                    <td>Uzraudzīt</td>
-                    <td>Drošības piezīmes</td>
-                </tr>
+                <tbody id="data-body">
+                <!-- Šeit ar JavaScript tiks ielādēti dati -->
                 </tbody>
             </table>
         </div>
@@ -78,6 +50,13 @@
             <a href="forma2.html" class="btn primary">Uz 2. formu</a>
         </div>
     </div>
+</div>
+
+<!-- JavaScript fails ar loģiku -->
+<script src="scripts.js"></script>
+</body>
+</html>
+
 </div>
 </body>
 </html>
