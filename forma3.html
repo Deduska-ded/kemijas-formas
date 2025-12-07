@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="lv">
-<head:
+<head>
     <meta charset="UTF-8">
     <title>Ķīmijas laboratorijas uzskaites sistēma – 3. forma</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 <div class="page">
     <div class="form-card">
@@ -39,6 +40,7 @@
                 </tr>
                 </thead>
                 <tbody id="data-body">
+                <!-- Šeit JavaScript ieliks datus -->
                 </tbody>
             </table>
         </div>
@@ -50,6 +52,7 @@
     </div>
 </div>
 
+<!-- Iebūvēts JavaScript ar datu ielādi un filtrēšanu -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const tbody = document.getElementById('data-body');
@@ -97,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('vielas.json').then(r => r.json())
     ])
     .then(([inventars, vielas]) => {
-
         const invItems = inventars.map(obj => ({
             category: 'inventars',
             idDisplay: formatId('I', obj.id),
@@ -118,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
             skaits: obj.skaits,
             stavoklis: '',
             komentari: obj.komentari || ''
-
         }));
 
         allItems = [...invItems, ...vItems];
@@ -155,6 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+</script>
+</body>
+</html>
+
 </script>
 </body>
 </html>
