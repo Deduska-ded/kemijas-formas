@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="lv">
-<head>
+<head:
     <meta charset="UTF-8">
     <title>Ķīmijas laboratorijas uzskaites sistēma – 3. forma</title>
     <link rel="stylesheet" href="styles.css">
@@ -19,7 +19,6 @@
             Šī forma paredzēta, lai parādītu skolai publiski pieejamu informāciju par laboratorijas vielām un inventāru.
         </p>
 
-        <!-- Filtra pogas -->
         <div class="nav-row filter-row">
             <button type="button" class="btn primary" id="btn-all">Rādīt visu</button>
             <button type="button" class="btn outline" id="btn-vielas">Rādīt vielas</button>
@@ -40,7 +39,6 @@
                 </tr>
                 </thead>
                 <tbody id="data-body">
-                <!-- Šeit JavaScript ieliks datus -->
                 </tbody>
             </table>
         </div>
@@ -52,7 +50,6 @@
     </div>
 </div>
 
-<!-- JavaScript ar datu ielādi -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const tbody = document.getElementById('data-body');
@@ -100,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('vielas.json').then(r => r.json())
     ])
     .then(([inventars, vielas]) => {
+
         const invItems = inventars.map(obj => ({
             category: 'inventars',
             idDisplay: formatId('I', obj.id),
@@ -120,11 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
             skaits: obj.skaits,
             stavoklis: '',
             komentari: obj.komentari || ''
+
         }));
 
         allItems = [...invItems, ...vItems];
-
-        // Pēc noklusējuma – rādam visu
         renderTable(allItems);
     })
     .catch(err => {
@@ -159,6 +156,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
-
 </body>
 </html>
