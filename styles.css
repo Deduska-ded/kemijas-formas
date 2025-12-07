@@ -209,3 +209,7 @@ tbody tr:nth-child(even) {
         justify-content: flex-start;
     }
 }
+.filter-row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
