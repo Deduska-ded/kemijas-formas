@@ -1,12 +1,7 @@
-// scripts.js
-// Šis fails atbild par datu ielādi un filtrēšanu 3. formā.
 
-document.addEventListener('DOMContentLoaded', () => {
+   document.addEventListener('DOMContentLoaded', () => {
     const tbody = document.getElementById('data-body');
-    if (!tbody) {
-        // Ja šī nav 3. forma, vienkārši neko nedaram
-        return;
-    }
+    if (!tbody) return;
 
     const btnAll = document.getElementById('btn-all');
     const btnVielas = document.getElementById('btn-vielas');
@@ -14,13 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allItems = [];
 
-    // Palīgfunkcija ID formatēšanai (piemēram, V0002, I0005)
     function formatId(prefix, id) {
         const num = String(id).padStart(4, '0');
         return prefix + num;
     }
 
-    // Funkcija, kas uzzīmē tabulu no masīva items
     function renderTable(items) {
         tbody.innerHTML = '';
 
@@ -49,13 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ielādējam inventāra un vielu datus
     Promise.all([
         fetch('inventars.json').then(r => r.json()),
         fetch('vielas.json').then(r => r.json())
     ])
         .then(([inventars, vielas]) => {
-            // Normalizējam inventāra ierakstus
             const invItems = inventars.map(obj => ({
                 category: 'inventars',
                 idDisplay: formatId('I', obj.id),
@@ -63,16 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 tips: obj.tips || 'Inventārs',
                 apakstips: obj.apakstips || '',
                 skaits: obj.skaits,
-                stavoklis: '',            // JSON nav stāvokļa – atstājam tukšu vai ieraksti, ja vajag
+                stavoklis: '',
                 komentari: obj.komentari || ''
             }));
 
-            // Normalizējam vielu ierakstus
             const vItems = vielas.map(obj => ({
                 category: 'viela',
                 idDisplay: formatId('V', obj.id),
                 nosaukums: obj.nosaukums,
-                tips: 'Viela',            // var arī likt obj.tips (reaģents), ja tā gribi
+                tips: 'Viela',
                 apakstips: obj.apakstips || '',
                 skaits: obj.skaits,
                 stavoklis: '',
@@ -80,8 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }));
 
             allItems = [...invItems, ...vItems];
-
-            // Pēc noklusējuma rādam VISU
             renderTable(allItems);
         })
         .catch(err => {
@@ -93,8 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tr.appendChild(td);
             tbody.appendChild(tr);
         });
-
-    // Pogas uzvedība
 
     if (btnAll) {
         btnAll.addEventListener('click', () => {
